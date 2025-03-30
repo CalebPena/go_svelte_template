@@ -1,0 +1,84 @@
+@import 'open-props/postcss/style';
+@import 'open-props/normalize.min.css';
+
+:root {
+	--primary-color: #5f3dc4;
+	--secondary-color: #cba135;
+	--primary-background-color: #f8fcff;
+	--primary-dark: #000000;
+	--primary-light: #ffffff;
+	--primary-error: #cc0000;
+	caret-color: var(--primary-color);
+}
+
+body {
+	background-color: var(--primary-light);
+}
+
+label {
+	font-size: 1.5em;
+}
+
+input {
+	font-size: 1.25em;
+	border: var(--border-size-1) solid var(--primary-dark);
+	border-radius: var(--radius-2);
+	width: var(--size-relative-15);
+	background-color: var(--primary-light);
+}
+
+.btn {
+	background-color: var(--primary-color);
+	color: var(--primary-light);
+	border: 2px solid var(--primary-color);
+	border-radius: var(--radius-2);
+	padding: var(--size-relative-3);
+	font-weight: var(--font-weight-6);
+
+	&:hover,
+	&:focus-visible {
+		background-color: var(--secondary-color);
+		color: var(--primary-dark);
+	}
+}
+
+.link {
+	color: var(--primary-color);
+	padding: var(--size-relative-2);
+
+	&:hover,
+	&:focus-visible {
+		color: var(--secondary-color);
+	}
+}
+
+.err-msg {
+	color: var(--primary-error);
+}
+
+:not(:focus-visible) {
+	outline-offset: var(--size-px-3);
+}
+
+:focus-visible {
+	outline-color: var(--primary-color);
+	outline-offset: 0;
+}
+
+::selection {
+	color: var(--primary-dark);
+	background-color: var(--secondary-color);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	:focus-visible {
+		transition: outline-offset 0.5s var(--ease-2);
+	}
+
+	.btn {
+		transition:
+			background-color 0.3s var(--ease-2),
+			color 0.3s var(--ease-2),
+			outline-offset 0.5s var(--ease-2);
+	}
+}
